@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+    <head>
+        <title>动态页面展示</title>
+        <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+    </head>
+
+    <body style="overflow-y:hidden">
+        <style type="text/css">
+            body {
+                zoom: 1.1;
+                -moz-transform: scale(1.132);
+                margin: 0;
+            }
+            .banner{
+                position: relative;
+                width: auto;
+                height: 155px;
+                overflow: hidden;
+            }
+            .layer{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+            }
+            #mycanvas{
+                filter: blur(1px);
+            }
+
+        </style>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  <br>
+        <div class="banner" style="-webkit-overflow-scrolling: auto;">
+            <div class="layer" ><img src="https://p1-tt.byteimg.com/origin/pgc-image/50d6839fe46146aab2e3842a1147f950.png"
+                                     height="155" width="2077"
+                                     style="transform: scale(1) translate(0px) ; filter: blur(0px);
+                                    opacity: 0;"></div>
+            <div class="layer"><img src="https://p6-tt.byteimg.com/origin/pgc-image/e164bafd1f4340aebf8ae158c64255ef.png"
+                                    height="155" width="2077"
+                                    style="transform: scale(1) translate(0px) ; filter: blur(0px);
+                                    opacity: 1;"></div>
+            <div class="layer"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/b5081492-2759-485f-ac40-7be7a4862132.gif"
+                                    height="155" width="2077"
+                                    style="transform: scale(1) translate(0px) ; filter: blur(0px);
+                                    opacity: 0;"></div>
+
+            <canvas id="mycanvas" width="2077" height="155" style="position: absolute; top: 0px; left: 0px;"></canvas>
+
+        </div>
+        <span><p align="center">拖动图片</p></span>
+        <br><br><br><br>
+        <div align="center"><a href="bird.html">test demo1</a></div><br>
+        <div align="center"><a href="mikutap/mikutap/index.html">mikutap</a></div><br>
+        <div align="center"><a href="2048.html">2048</a></div>
+
+        <script type="text/javascript">
+            let init=()=>{
+                layer[0].children[0].style='transition:.2s linear;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 0;';
+                layer[1].children[0].style='transition:.2s linear;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 1;';
+                layer[2].children[0].style='transition:.2s linear;object-fit: cover;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 0;';
+            };
+            let banner=document.querySelector(".banner");
+            let layer=document.querySelectorAll(".layer");
+            let window_width = document.documentElement.clientWidth;
+            let step = window_width/2.6;
+            let x=0;
+            let x_new=0;
+            let x_offset=0;
+            let data_images=[
+                {scale:1,translate:0,filter:0,opacity:0},
+                {scale:1,translate:0,filter:0,opacity:1},
+                {scale:1,translate:0,filter:0,opacity:0},
+                {scale:1,translate:0,filter:0,opacity:0},
+            ];
+            banner.addEventListener('touchstart',function(e){
+                e.preventDefault();
+                x=e.touches[0].clientX;
+            });
+            banner.addEventListener('touchmove',function(e){
+
+                    x_new =e.touches[0].clientX;
+                    x_offset=x-x_new;
+                    const element_data1=data_images[1];
+                    const element_data2=data_images[2];
+                    let opacity_new1=element_data1.opacity+(x_offset/step);
+                    let opacity_new2=element_data2.opacity+(x_offset/step);
+                    let translate_new=-x_offset / 2;
+                    layer[0].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:1;';
+                    layer[1].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new1+';';
+                    layer[2].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new2+';';
+
+            });
+            banner.addEventListener("touchend",function(){
+                init();
+            });
+
+        </script>
+        <script type="text/javascript">
+            let canvas =document.getElementById("mycanvas");
+            let ctx=canvas.getContext('2d');
+            let mouse={x:0};//鼠标位置
+            let snowWeather=[];//建立雪花集合
+
+            function snowFlake(x,y,dx,dy,radius,opacity,z) {
+                this.x=x;
+                this.y=y;
+                this.z=z;
+                this.dx=dx;
+                this.dy=dy;
+                this.radius=radius;
+                this.draw=function () {
+                    ctx.beginPath();
+                    ctx.arc(this.x,this.y,this.radius,0,2*Math.PI,false);
+                    ctx.fillStyle ="white";
+                    ctx.globalAlpha=opacity;
+                    ctx.fill();
+                    ctx.closePath();
+                }
+                this.update =function () {
+                    this.y+=this.dy;
+                    this.draw();
+                }
+
+            }
+            function create() {
+                let randomZ=Math.random();
+                //Z轴的随机坐标
+                let randomOpacity=randomZ*2+0.95;
+                //Z透明度
+                let randomDy=randomZ*1.8+0.5;
+                let randomRadius=Math.random()*2+0.2;
+                //半径大的下落速度快,两个参数形成关联
+                snowWeather.push(new snowFlake(Math.random()*document.body.clientWidth,-30,0,randomDy,randomRadius,randomOpacity,randomZ))
+                //与Z轴关联的雪花集合
+            }
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                create();
+                for (let i=0;i<snowWeather.length;i++) {
+                    snowWeather[i].update();
+                    if(snowWeather[i].y>150)
+                    {
+                        snowWeather.splice(i,1)
+                    }
+                }
+            }
+            animate();
+        </script>
+        <Script>
+            function refresh(){
+                url = location.href;
+                console.log(url);
+                var once = url.split("#");
+                if (once[1] != 1) {
+                    url += "#1";
+                    self.location.replace(url);
+                    window.location.reload();
+                }
+            }
+            setTimeout('refresh()', 1000);
+
+        </script>
+
+
+    </body>
+</html>
