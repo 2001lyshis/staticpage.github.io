@@ -15,7 +15,8 @@
     </style>
 </head>
 
-<body>
+<body><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <center id="score" style="font:bold 25px Arial,Microsoft Yahei"></center><br/>
 <canvas id="canvas" width="500" height="500"></canvas><br><br><br><br>
 <div align="center"> <a href="index.html">back to index</a></div></div>
@@ -164,6 +165,9 @@
         var touch = event.touches[0];
         sx = touch.clientX, sy = touch.clientY;
     }
+    canvas.onmousedown = function(event) {
+        sx = event.clientX, sy = event.clientY;
+    }
     canvas.ontouchmove = function(event) {
         var touch = event.touches[0];
         ex = touch.clientX, ey = touch.clientY;
@@ -171,7 +175,20 @@
         //禁止默认的滑动事件
         event.preventDefault();
     }
+    canvas.onmousemove = function(event) {
+        ex = event.clientX, ey = event.clientY;
+        dx = ex - sx, dy = ey - sy;
+        //禁止默认的滑动事件
+        event.preventDefault();
+    }
     canvas.ontouchend = function(event) {
+        //根据横纵坐标位移判断滑动方向
+        if(dy < -50 && Math.abs(dy / dx) > 2) move([0, -1]);
+        if(dy > 50 && Math.abs(dy / dx) > 2) move([0, 1]);
+        if(dx < -50 && Math.abs(dx / dy) > 2) move([-1, 0]);
+        if(dx > 50 && Math.abs(dx / dy) > 2) move([1, 0]);
+    }
+    canvas.onmouseup = function(event) {
         //根据横纵坐标位移判断滑动方向
         if(dy < -50 && Math.abs(dy / dx) > 2) move([0, -1]);
         if(dy > 50 && Math.abs(dy / dx) > 2) move([0, 1]);

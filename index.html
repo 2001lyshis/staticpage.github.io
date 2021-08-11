@@ -34,7 +34,7 @@
 
         </style>
         <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  <br>
-        <div class="banner" style="-webkit-overflow-scrolling: auto;">
+        <div class="banner" id="banner1" style="-webkit-overflow-scrolling: auto;">
             <div class="layer" ><img src="https://p1-tt.byteimg.com/origin/pgc-image/50d6839fe46146aab2e3842a1147f950.png"
                                      height="155" width="2077"
                                      style="transform: scale(1) translate(0px) ; filter: blur(0px);
@@ -54,10 +54,9 @@
         <span><p align="center">图片可拖动</p></span>
 
         <br><br><br><span><p align="center">小游戏 :</p></span><hr><br>
-        <div align="center"><a href="bird.html">小鸟转转转 (IOS,Android)</a></div><br><hr><br>
         <div align="center"><a href="mikutap/index.html">mikutap (IOS,Android,PC)</a></div><br><hr><br>
-        <div align="center"><a href="2048.html">2048 (IOS,Android)</a></div><br><hr><br>
-        <div align="center"><a href="missile-game-plus/index.html">missile (IOS,Android,PC)</a></div><br><hr>
+        <div align="center"><a href="missile-game-plus/index.html">missile (IOS,Android,PC)</a></div><br><hr><br>
+        <div align="center"><a href="2048/2048.html">2048 (IOS,Android)</a></div><br><hr><br>
 
         <script type="text/javascript">
             let init=()=>{
@@ -65,7 +64,7 @@
                 layer[1].children[0].style='transition:.2s linear;object-fit: cover;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 1;';
                 layer[2].children[0].style='transition:.2s linear;object-fit: cover;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 0;';
             };
-            let banner=document.querySelector(".banner");
+            var banner = document.getElementById("banner1");
             let layer=document.querySelectorAll(".layer");
             let window_width = document.documentElement.clientWidth;
             let step = window_width/2.6;
@@ -78,12 +77,11 @@
                 {scale:1,translate:0,filter:0,opacity:0},
                 {scale:1,translate:0,filter:0,opacity:0},
             ];
-            banner.addEventListener('touchstart',function(e){
+            banner.ontouchstart = function(e){
                 e.preventDefault();
                 x=e.touches[0].clientX;
-            });
-            banner.addEventListener('touchmove',function(e){
-
+            }
+            banner.ontouchmove = function(e){
                     x_new =e.touches[0].clientX;
                     x_offset=x-x_new;
                     const element_data1=data_images[1];
@@ -95,10 +93,29 @@
                     layer[1].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new1+';';
                     layer[2].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new2+';';
 
-            });
-            banner.addEventListener("touchend",function(){
+            }
+            banner.ontouchend= function() {
                 init();
-            });
+            }
+            banner.onmouseover = function(e){
+                x=e.clientX;
+            }
+            banner.onmousemove = function(e){
+                x_new =e.clientX;
+                x_offset=x_new-x;
+                const element_data1=data_images[1];
+                const element_data2=data_images[2];
+                let opacity_new1=element_data1.opacity+(x_offset/step);
+                let opacity_new2=element_data2.opacity+(x_offset/step);
+                let translate_new=-x_offset/30;
+                layer[0].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:1;';
+                layer[1].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new1+';';
+                layer[2].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new2+';';
+            }
+            banner.onmouseout = function(e){
+                init();
+            }
+
 
         </script>
         <script type="text/javascript">
