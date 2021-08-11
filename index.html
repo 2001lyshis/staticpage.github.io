@@ -3,6 +3,7 @@
     <head>
         <title>main page</title>
         <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     </head>
 
     <body style="overflow-y:hidden">
@@ -152,21 +153,12 @@
             }
             animate();
         </script>
-        <Script>
-            function refresh(){
-                url = location.href;
-                console.log(url);
-                var once = url.split("#");
-                if (once[1] != 1) {
-                    url += "#1";
-                    self.location.replace(url);
-                    window.location.reload();
-                }
-            }
-            setTimeout('refresh()', 1000);
-
+        <script>
+            var num = 1;
+            var timer = setTimeout(function () {
+                $(document).ready(init());
+            },2500);
         </script>
-
 
     </body>
 </html>
