@@ -12,12 +12,12 @@ const musicCover = document.getElementById("music-cover");
 // 音乐信息
 const songs = ["bouquet", "Nyan Cat", "Torches",
                  "Nevada", "Leshphon", "Sweet Rumors"];
-const ip = ["http://m10.music.126.net/20210811232207/0f3c9a1baf1d434a237f4bf7b8192f69/ymusic/da46/492d/6789/d0b19b1c66971e852759ab4c4460eb6d.mp3",
-    "http://m801.music.126.net/20210811232255/09039dd61781aeb4283319a01c6c1bef/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/7303992570/c21b/712f/f70f/4dd1bb7dc026258b516da900931828ed.mp3",
-    "http://m801.music.126.net/20210811232429/af72fd78ac5dddd7b52342a7ea11f53d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/8777094442/1403/18b0/c939/7889e3c3786165d286a1efe8cc280557.mp3",
-    "http://m10.music.126.net/20210811232414/b57e64397088b6f1d08ac21aa3161500/ymusic/d336/66b8/93f6/53a73538fb4a283e3694ca5e48e4f9c8.mp3",
-    "http://m10.music.126.net/20210811232506/121d529f63c4c37ecf5eada31e57f1a3/ymusic/9948/6165/d1fa/6a0b2b2e80ae2ebdffe51524b3bd34b4.mp3",
-    "http://m10.music.126.net/20210811232356/337453af5671b01015bc736236df7183/ymusic/b341/e8ce/c276/f3a35839fcc91c52bf873ba1aa909a57.mp3"
+const ip = ["https://www.ytmp3.cn/down/75461.mp3",
+    "http://www.ytmp3.cn/down/75465.mp3",
+    "http://www.ytmp3.cn/down/75464.mp3",
+    "https://www.ytmp3.cn/down/75460.mp3",
+    "http://www.ytmp3.cn/down/75466.mp3",
+    "http://www.ytmp3.cn/down/75467.mp3"
 ]
 // 默认从第一首开始
 let songIndex = 0;
