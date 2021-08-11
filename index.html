@@ -4,36 +4,12 @@
         <title>main page</title>
         <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+        <link rel="stylesheet" href="index/css/style.css">
     </head>
 
-    <body style="overflow-y:hidden">
-        <style type="text/css">
-            .banner{
-                position: relative;
-                height: 155px;
-                overflow: hidden;
-            }
-            .layer{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-            }
-            #mycanvas{
-                filter: blur(1px);
-            }
-            hr {
-                width:60%;
-                margin:0 auto;
-                border: 0;
-                height: 1px;
-                background-image: linear-gradient(black,black,black);
-            }
+    <body>
 
-        </style>
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>  <br>
         <div class="banner" id="banner1" style="-webkit-overflow-scrolling: auto;">
             <div class="layer" ><img src="https://p1-tt.byteimg.com/origin/pgc-image/50d6839fe46146aab2e3842a1147f950.png"
                                      height="155" width="2077"
@@ -49,133 +25,57 @@
                                     opacity: 0;"></div>
 
             <canvas id="mycanvas" width="2077" height="155" style="position: absolute; top: 0px; left: 0px;"></canvas>
-
         </div>
         <span><p align="center">图片可拖动</p></span>
 
-        <br><br><br><span><p align="center">小游戏 :</p></span><hr><br>
-        <div align="center"><a href="mikutap/index.html">mikutap (IOS,Android,PC)</a></div><br><hr><br>
-        <div align="center"><a href="missile-game-plus/index.html">missile (IOS,Android,PC)</a></div><br><hr><br>
-        <div align="center"><a href="2048/2048.html">2048 (IOS,Android,PC)</a></div><br><hr><br>
+        <br><span><p align="center">小游戏 :</p></span><hr><br>
+        <div align="center" >
+            <a href="mikutap/index.html"><img src="index/img/mikutap.png" class="games"></a>&emsp;&emsp;&emsp;
+            <a href="missile-game-plus/index.html"><img src="index/img/misslie.png" class="games"></a>&emsp;&emsp;&emsp;
+            <a href="2048/2048.html"><img src="index/img/2048.png" class="games"></a>
+                <div id = "game-name"><br>mikutap (IOS,Android,PC)&emsp;missile (IOS,Android,PC)&emsp;2048 (IOS,Android,PC)<br></div>
+        </div>
+        <br>
+        <hr>
+        <div class="music">
+        <h1 style="color:rgb(2,1,2)">Music Player</h1>
+        <div class="music-container" id="music-container">
+            <!-- 音乐信息 -->
+            <div class="music-info">
+                <!-- 音乐标题 -->
+                <h4 id="title"></h4>
+                <!-- 音乐播放进度条 -->
+                <div class="progress-container" id="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+            <!-- 默认第一首音乐 -->
+            <audio src="http://m10.music.126.net/20210811232207/0f3c9a1baf1d434a237f4bf7b8192f69/ymusic/da46/492d/6789/d0b19b1c66971e852759ab4c4460eb6d.mp3" id="audio"></audio>
+            <!-- 进度时间 -->
 
-        <script type="text/javascript">
-            let init=()=>{
-                layer[0].children[0].style='transition:.2s linear;object-fit: cover;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 0;';
-                layer[1].children[0].style='transition:.2s linear;object-fit: cover;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 1;';
-                layer[2].children[0].style='transition:.2s linear;object-fit: cover;transform: scale(1) translate(0px) ; filter: blur(0px);opacity: 0;';
-            };
-            var banner = document.getElementById("banner1");
-            let layer=document.querySelectorAll(".layer");
-            let window_width = document.documentElement.clientWidth;
-            let step = window_width/2.6;
-            let x=0;
-            let x_new=0;
-            let x_offset=0;
-            let data_images=[
-                {scale:1,translate:0,filter:0,opacity:0},
-                {scale:1,translate:0,filter:0,opacity:1},
-                {scale:1,translate:0,filter:0,opacity:0},
-                {scale:1,translate:0,filter:0,opacity:0},
-            ];
-            banner.ontouchstart = function(e){
-                e.preventDefault();
-                x=e.touches[0].clientX;
-            }
-            banner.ontouchmove = function(e){
-                    x_new =e.touches[0].clientX;
-                    x_offset=x-x_new;
-                    const element_data1=data_images[1];
-                    const element_data2=data_images[2];
-                    let opacity_new1=element_data1.opacity+(x_offset/step);
-                    let opacity_new2=element_data2.opacity+(x_offset/step);
-                    let translate_new=-x_offset / 2;
-                    layer[0].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:1;';
-                    layer[1].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new1+';';
-                    layer[2].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new2+';';
+            <!-- 音乐封面 -->
+            <div class="img-container">
+                <img src="index/img/bouquet.jpg" alt="music-cover" id="music-cover">
+            </div>
+            <!-- 播放控制 -->
+            <div class="navigation">
+                <button id="prev" class="action-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button id="play" class="action-btn action-btn-big">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next" class="action-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
+            </div>
+        </div>
+        </div>
 
-            }
-            banner.ontouchend= function() {
-                init();
-            }
-            banner.onmouseover = function(e){
-                x=e.clientX;
-            }
-            banner.onmousemove = function(e){
-                x_new =e.clientX;
-                x_offset=x_new-x;
-                const element_data1=data_images[1];
-                const element_data2=data_images[2];
-                let opacity_new1=element_data1.opacity+(x_offset/step);
-                let opacity_new2=element_data2.opacity+(x_offset/step);
-                let translate_new=-x_offset/30;
-                layer[0].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:1;';
-                layer[1].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new1+';';
-                layer[2].children[0].style='transform: scale(1) translate('+translate_new+'px) ; filter: blur(0px);opacity:'+opacity_new2+';';
-            }
-            banner.onmouseout = function(e){
-                init();
-            }
-
-
-        </script>
-        <script type="text/javascript">
-            let canvas =document.getElementById("mycanvas");
-            let ctx=canvas.getContext('2d');
-            let mouse={x:0};//鼠标位置
-            let snowWeather=[];//建立雪花集合
-
-            function snowFlake(x,y,dx,dy,radius,opacity,z) {
-                this.x=x;
-                this.y=y;
-                this.z=z;
-                this.dx=dx;
-                this.dy=dy;
-                this.radius=radius;
-                this.draw=function () {
-                    ctx.beginPath();
-                    ctx.arc(this.x,this.y,this.radius,0,2*Math.PI,false);
-                    ctx.fillStyle ="white";
-                    ctx.globalAlpha=opacity;
-                    ctx.fill();
-                    ctx.closePath();
-                }
-                this.update =function () {
-                    this.y+=this.dy;
-                    this.draw();
-                }
-
-            }
-            function create() {
-                let randomZ=Math.random();
-                //Z轴的随机坐标
-                let randomOpacity=randomZ*2+0.95;
-                //Z透明度
-                let randomDy=randomZ*1.8+0.5;
-                let randomRadius=Math.random()*2+0.2;
-                //半径大的下落速度快,两个参数形成关联
-                snowWeather.push(new snowFlake(Math.random()*document.body.clientWidth,-30,0,randomDy,randomRadius,randomOpacity,randomZ))
-                //与Z轴关联的雪花集合
-            }
-            function animate() {
-                requestAnimationFrame(animate);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                create();
-                for (let i=0;i<snowWeather.length;i++) {
-                    snowWeather[i].update();
-                    if(snowWeather[i].y>150)
-                    {
-                        snowWeather.splice(i,1)
-                    }
-                }
-            }
-            animate();
-        </script>
-        <script>
-            var num = 1;
-            var timer = setTimeout(function () {
-                $(document).ready(init());
-            },2500);
-        </script>
+        <script src="index/js/banner.js"></script>
+        <script src="index/js/snow.js"></script>
+        <script src="index/js/music.js"></script>
+        <script src="index/js/window.js"></script>
 
     </body>
 </html>
