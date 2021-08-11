@@ -1,3 +1,3 @@
 [submodule "missile-game"]
 	path = missile-game
-	url = https://hub.fastgit.org/bwhmather/missile-game.git
+	url = https://github.com/bwhmather/missile-game.git
