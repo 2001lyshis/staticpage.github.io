@@ -10,10 +10,11 @@ const title = document.getElementById("title");
 const musicCover = document.getElementById("music-cover");
 
 // 音乐信息
-const songs = ["bouquet", "Nyan Cat", "Torches",
+const songs = ["Nyan Cat", "bouquet", "Torches",
                  "Nevada", "Leshphon", "Sweet Rumors"];
-const ip = ["https://www.ytmp3.cn/down/75461.mp3",
+const ip = [
     "http://www.ytmp3.cn/down/75465.mp3",
+    "https://www.ytmp3.cn/down/75461.mp3",
     "http://www.ytmp3.cn/down/75464.mp3",
     "https://www.ytmp3.cn/down/75460.mp3",
     "http://www.ytmp3.cn/down/75466.mp3",
