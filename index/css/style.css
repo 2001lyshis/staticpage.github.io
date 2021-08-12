@@ -13,7 +13,6 @@
                 height: 30px;
             }
             .music {
-                height: 100vh;
                 display: flex;
                 /* 沿垂直主轴上下垂直排列 */
                 flex-direction: column;
