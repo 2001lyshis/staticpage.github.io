@@ -1,93 +1,90 @@
 <!doctype html>
 <html>
-    <head>
-        <title>lyshis</title>
-        <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
-        <link rel="stylesheet" href="index/css/style.css">
-        <link rel="shortcut icon" href="favicon.ico">
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    </head>
+<head>
+    <title>lyshis</title>
+    <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    <link rel="stylesheet" href="index/css/style.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
 
-    <body>
-
-        <div class="banner" id="banner1" style="-webkit-overflow-scrolling: auto;">
-            <div class="layer" ><img src="https://p1-tt.byteimg.com/origin/pgc-image/50d6839fe46146aab2e3842a1147f950.png"
-                                     height="155" width="2077"
-                                     style="transform: scale(1) translate(0px) ; filter: blur(0px);
+<body>
+<span><p align="center">小游戏 :</p></span><hr><br>
+<table align="center">
+    <tr  id="game-img">
+        <td align="center"><a href="mikutap/index.html"><img src="index/img/mikutap.png" class="games"></a>&emsp;</td>
+        <td align="center"><a href="missile-game-plus/index.html"><img src="index/img/misslie.png" class="games"></a>&emsp;</td>
+        <td align="center"><a href="nyancat/index.html"><img src="index/img/nyancat.png" class="games"></a>&emsp;</td>
+        <td align="center"><a href="runner/index.html"><img src="index/img/runner.png" class="games"></a>&emsp;</td>
+    </tr>
+    <tr  id = "game-name">
+        <td align="center"> <span >Mikutap (All-Platform)</span>&nbsp;&nbsp;
+        <td align="center"> <span >Missile (All-Platform)</span>&nbsp;&nbsp;
+        <td align="center"> <span >Nyan Cat (All-Platform)</span>&nbsp;&nbsp;
+        <td align="center"> <span >T-Rex-Runner(All-Platform)</span>&nbsp;&nbsp;
+    </tr>
+    <br>
+</table>
+<br>
+<hr>
+<br>
+<div class="banner" id="banner1" style="-webkit-overflow-scrolling: auto;">
+    <div class="layer" ><img src="https://img.ams1.imgbed.xyz/2021/08/12/3bzPg.gif"
+                             height="155" width="2077"
+                             style="transform: scale(1) translate(0px) ; filter: blur(0px);
                                     opacity: 0;"></div>
-            <div class="layer"><img src="https://p6-tt.byteimg.com/origin/pgc-image/e164bafd1f4340aebf8ae158c64255ef.png"
-                                    height="155" width="2077"
-                                    style="transform: scale(1) translate(0px) ; filter: blur(0px);
+    <div class="layer"><img src="https://img.ams1.imgbed.xyz/2021/08/12/3bxRE.gif"
+                            height="155" width="2077"
+                            style="transform: scale(1) translate(0px) ; filter: blur(0px);
                                     opacity: 1;"></div>
-            <div class="layer"><img src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-imgbed/b5081492-2759-485f-ac40-7be7a4862132.gif"
-                                    height="155" width="2077"
-                                    style="transform: scale(1) translate(0px) ; filter: blur(0px);
+    <div class="layer"><img src="https://img.ams1.imgbed.xyz/2021/08/12/3bDsx.gif"
+                            height="155" width="2077"
+                            style="transform: scale(1) translate(0px) ; filter: blur(0px);
                                     opacity: 0;"></div>
-            <canvas id="mycanvas" width="2077" height="155" style="position: absolute; top: 0px; left: 0px;"></canvas>
-        </div>
+</div>
 
-        <span><p align="center">图片可拖动</p></span>
-        <br>
-        <span><p align="center">小游戏 :</p></span><hr><br>
-        <table align="center">
-            <tr  id="game-img">
-                <td align="center"><a href="mikutap/index.html"><img src="index/img/mikutap.png" class="games"></a>&emsp;</td>
-                <td align="center"><a href="missile-game-plus/index.html"><img src="index/img/misslie.png" class="games"></a>&emsp;</td>
-                <td align="center"><a href="nyancat/index.html"><img src="index/img/nyancat.png" class="games"></a>&emsp;</td>
-                <td align="center"><a href="runner/index.html"><img src="index/img/runner.png" class="games"></a>&emsp;</td>
-            </tr>
-            <tr  id = "game-name">
-                <td align="center"> <span >Mikutap (All-Platform)</span>&nbsp;&nbsp;
-                <td align="center"> <span >Missile (All-Platform)</span>&nbsp;&nbsp;
-                <td align="center"> <span >Nyan Cat (All-Platform)</span>&nbsp;&nbsp;
-                <td align="center"> <span >T-Rex-Runner(All-Platform)</span>&nbsp;&nbsp;
-            </tr>
-            <br>
-        </table>
+<br>
 
-        <br>
-        <hr>
-        <div class="music">
-        <h1 style="color:rgb(2,1,2)">Music Player</h1>
-        <div class="music-container" id="music-container">
-            <!-- 音乐信息 -->
-            <div class="music-info">
-                <!-- 音乐标题 -->
-                <h4 id="title"></h4>
-                <!-- 音乐播放进度条 -->
-                <div class="progress-container" id="progress-container">
-                    <div class="progress" id="progress"></div>
-                </div>
-            </div>
-            <!-- 默认第一首音乐 -->
-            <audio src="http://www.ytmp3.cn/down/75465.mp3" id="audio"></audio>
-            <!-- 进度时间 -->
-
-            <!-- 音乐封面 -->
-            <div class="img-container">
-                <img src="index/img/bouquet.jpg" alt="music-cover" id="music-cover">
-            </div>
-            <!-- 播放控制 -->
-            <div class="navigation">
-                <button id="prev" class="action-btn">
-                    <i class="fas fa-backward"></i>
-                </button>
-                <button id="play" class="action-btn action-btn-big">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="next" class="action-btn">
-                    <i class="fas fa-forward"></i>
-                </button>
+<div class="music">
+    <h1 style="color:rgb(2,1,2)">Music Player</h1>
+    <div class="music-container" id="music-container">
+        <!-- 音乐信息 -->
+        <div class="music-info">
+            <!-- 音乐标题 -->
+            <h4 id="title"></h4>
+            <!-- 音乐播放进度条 -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
             </div>
         </div>
+        <!-- 默认第一首音乐 -->
+        <audio src="http://www.ytmp3.cn/down/75465.mp3" id="audio"></audio>
+        <!-- 进度时间 -->
+
+        <!-- 音乐封面 -->
+        <div class="img-container">
+            <img src="index/img/bouquet.jpg" alt="music-cover" id="music-cover">
         </div>
+        <!-- 播放控制 -->
+        <div class="navigation">
+            <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+        </div>
+    </div>
+</div>
 
-        <script src="index/js/banner.js"></script>
-        <script src="index/js/snow.js"></script>
-        <script src="index/js/music.js"></script>
-        <script src="index/js/window.js"></script>
-        <script src="index/js/nyancat.js"></script>
+<script src="index/js/banner.js"></script>
+<script src="index/js/music.js"></script>
+<script src="index/js/window.js"></script>
+<script src="index/js/nyancat.js"></script>
 
-    </body>
+</body>
 </html>
