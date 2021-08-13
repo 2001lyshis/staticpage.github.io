@@ -13,7 +13,7 @@
                 height: 30px;
             }
             .music {
-                height: 100vh;
+                height: 62vh;
                 overflow-y: hidden;
                 display: flex;
                 /* 沿垂直主轴上下垂直排列 */
