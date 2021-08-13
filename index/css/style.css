@@ -14,6 +14,7 @@
             }
             .music {
                 height: 100vh;
+                overflow-y: hidden;
                 display: flex;
                 /* 沿垂直主轴上下垂直排列 */
                 flex-direction: column;
