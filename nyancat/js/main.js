@@ -343,7 +343,7 @@ var cats = {
     v:getCatsImgs('nyan'),
     original:getCatsImgs('original'),
     technyan:getCatsImgs('technyancolor')
-}
+};
 
 function getCatsImgs(name){
     var technyancolor00;
@@ -369,8 +369,30 @@ var mv = new Musicvisualizer({
     size:128,
     draw:function(){
     }
-})
-mv.play('media/vday.ogg');
+});
+var bkflag = false;
+var bkflag2 = true;
+window.ontouchstart = function() {
+    //单例模式
+    bkflag = true;
+    playm();
+}
+function playm() {
+    if(Isiphone()) {
+        if(bkflag && bkflag2) {
+            mv.play('media/vday.mp3');
+            bkflag2 = false;
+        }
+    } else {
+        if(bkflag2) {
+            mv.play('media/vday.mp3');
+            bkflag2 = false;
+        }
+    }
+
+}
+playm();
+
 
 function loop(){
     var now = new Date() - 0;
@@ -390,11 +412,7 @@ function update(deltaTime){
     var max = 1;
     for(var i = 15 ; i < show.musicShape.children.length; i++){
         var currentValue = arr[i];
-        if(currentValue > max){max = currentValue};
-        //var percent = currentValue/256;
-        //var y = percent*10+1;
-        //show.musicShape.children[i-15].scale.y = y;
-        //show.musicShape.children[i-15].position.y = y-5;
+        if(currentValue > max){max = currentValue}
     }
     var p = max/256;
     cat.rainbow.scale.y = p*0.5+1;
@@ -411,11 +429,6 @@ function update(deltaTime){
 window.onload = function(){
     addControler();
     console.log(cat.imgPack);
-    //cat._drawImg(cat.imgPack[0]);
-    document.getElementById('stage').addEventListener('mousedown',function(){
-        console.log('yes?')
-        //playmusic();
-    });
     show.scene.add(bg.points);
     show.scene.add(cat.rainbow);
     loop();
@@ -439,6 +452,11 @@ function IsPC(){
     }
     return flag;
 }
+function Isiphone(){
+    var a = navigator.userAgent;
+    var isiOS = !!a.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    return isiOS;
+}
 function playmusic(){
     var media = document.getElementById('music');
     console.log('mousedown'+media.paused);
@@ -447,7 +465,7 @@ function playmusic(){
         console.log('play');
     }
 }
-var catType = 0;
+var catType = 2;
 function changeCat(){
     catType = catType+=1;
     if(catType >= 3){
@@ -458,21 +476,21 @@ function changeCat(){
         case 0:
             catname = 'v';
             show.cat.scale.set(11,11,1);
-            mv.play('media/vday.ogg');
+            mv.play('media/vday.mp3');
             cat.speed = 1/12;
             bg.speed = 1;
             break;
         case 1:
             catname = 'original';
             show.cat.scale.set(11,11,1);
-            mv.play('media/original.ogg')
+            mv.play('media/original.mp3');
             cat.speed = 1/14;
             bg.speed = 14/12;
             break;
         case 2:
             catname = 'technyan';
             show.cat.scale.set(12,12,1);
-            mv.play('media/technyancolor.mp3')
+            mv.play('media/technyancolor.mp3');
             cat.speed = 1/18;
             bg.speed = 18/12;
             break;
