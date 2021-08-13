@@ -13,8 +13,7 @@
                 height: 30px;
             }
             .music {
-                height: 62vh;
-                overflow-y: hidden;
+                height: 65vh;
                 display: flex;
                 /* 沿垂直主轴上下垂直排列 */
                 flex-direction: column;
@@ -27,7 +26,7 @@
             }
             .banner{
                 position: relative;
-                height: 155px;
+                height: 175px;
                 overflow: hidden;
             }
             .layer{
@@ -37,9 +36,6 @@
                 display: flex;
                 justify-content: center;
                 align-content: center;
-            }
-            #mycanvas{
-                filter: blur(1px);
             }
             hr {
                 width:80%;
