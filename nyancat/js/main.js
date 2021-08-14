@@ -482,14 +482,14 @@ function changeCat(){
         case 1:
             catname = 'original';
             show.cat.scale.set(11,11,1);
-            mv.play('http://www.ytmp3.cn/down/75473.mp3');
+            mv.play('https://www.ytmp3.cn/down/75473.mp3');
             cat.speed = 1/14;
             bg.speed = 14/12;
             break;
         case 2:
             catname = 'technyan';
             show.cat.scale.set(12,12,1);
-            mv.play('http://www.ytmp3.cn/down/75474.mp3');
+            mv.play('https://www.ytmp3.cn/down/75474.mp3');
             cat.speed = 1/18;
             bg.speed = 18/12;
             break;
