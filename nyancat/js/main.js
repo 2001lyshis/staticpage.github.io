@@ -231,7 +231,7 @@ Background.prototype = {
             color:0xff0000,
             transparent:true,
             opacity:0.5
-        })
+        });
         var cube = new THREE.Mesh(cubeG,CubeMaterial);
         cube.position.z = -0.5;
         //scene.add(cube);
@@ -298,7 +298,7 @@ Background.prototype = {
         var group = new THREE.Group();
         for(var i = 0 ; i < 128 ; i++){
             var cubeG = new THREE.BoxGeometry(0.1,0.1,0.1);
-            var cubeM = new THREE.MeshPhongMaterial({color:0xff00ff})
+            var cubeM = new THREE.MeshPhongMaterial({color:0xff00ff});
             var cube = new THREE.Mesh(cubeG,cubeM);
             var x = (64-i)*(20/128) - 5;
             var y = -3;
@@ -311,7 +311,7 @@ Background.prototype = {
             color:0xffffff,
             transparent:true,
             opacity:1,
-        })
+        });
         var transparentCube = new THREE.Mesh(transparentCubeG,transparentCubeM);
         transparentCube.position.set(0,-8,2);
         //group.add(transparentCube);
@@ -350,7 +350,7 @@ function getCatsImgs(name){
     var arr = [];
     for(var x = 0 ;x < 12 ; x++){
         var str = 'imgs/nyan/'+name+'0'+x+'.png';
-        if(x>=10){str = 'imgs/nyan/'+name+x+'.png'};
+        if(x>=10){str = 'imgs/nyan/'+name+x+'.png'}
         arr.push(str);
     }
     return arr;
@@ -432,7 +432,7 @@ window.onload = function(){
     show.scene.add(cat.rainbow);
     loop();
     if(Isiphone()) {
-        button1.innerText="点击屏幕加载音乐"
+        button1.innerText="点击屏幕加载音乐";
         button1.disabled=true;
     }
 

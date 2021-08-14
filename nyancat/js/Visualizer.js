@@ -35,10 +35,12 @@ var u8arr;
 Musicvisualizer.prototype.load = function(url,fun){
     button1.disabled = true;
     if(IsPC()) {
-        button1.innerText = "正在加载音乐...方向键与鼠标可以控制视角"
+        button1.innerText = "正在加载音乐...方向键与鼠标可以控制视角";
     } else {
-        button1.innerText = "正在加载音乐...双指可以控制视角"
+        button1.innerText = "正在加载音乐...双指可以控制视角";
     }
+    button1.style.color= 'rgba(96,96,99,0.73)';
+    button1.style.border = '1px solid rgba(119,119,122,0.86)';
 
     console.log('开始加载音乐');
     this.xhr.abort();
@@ -125,7 +127,9 @@ Musicvisualizer.prototype.play = function(path){
             console.log(index);
             if(index || index === 0){
                 button1.disabled =false;
-                button1.innerText= "changeCat";
+                button1.innerText= "change";
+                button1.style.color= '#ee11ee';
+                button1.style.border = '1px solid #ee11ee';
                 console.log('启用缓存');
                 var bufferSource = Musicvisualizer.ac.createBufferSource();
                 bufferSource.buffer = self.tempMusicList[index].bufferSource.buffer;
@@ -149,8 +153,10 @@ Musicvisualizer.prototype.play = function(path){
                         button1.innerText="点击播放";
                         fristflag = false;
                     } else {
-                        button1.innerText= "changeCat";
+                        button1.innerText = "change";
                     }
+                    button1.style.color= '#ee11ee';
+                    button1.style.border = '1px solid #ee11ee';
                     self.tempMusicList.push({
                         url:url,
                         bufferSource:bufferSource
