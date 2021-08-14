@@ -6,6 +6,6 @@ body { position: relative; }
 
 #cat { position: absolute; z-index: 1; }
 
-#changeCat { position: fixed; width: .8rem; height: .25rem; margin-left: -.4rem; left: 50%; bottom: 6%; font-size: .2rem; background-color: inherit; border: 1px solid #ee11ee; color: #ee11ee; outline: none; }
+#changeCat { position: fixed; width: auto; height: .25rem; margin-left: -.4rem; left: 50%; bottom: 6%; font-size: .2rem; background-color: inherit; border: 1px solid #ee11ee; color: #ee11ee; outline: none; }
 
 /*# sourceMappingURL=index.css.map */

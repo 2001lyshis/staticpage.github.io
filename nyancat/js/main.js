@@ -204,14 +204,14 @@ Background.prototype = {
                 function(image){
                     //加载完成之后将图片添加进去
                     if(typeof(index) === 'undefined'){
-                        console.log('此处的加载需要提供索引');
+
                         return false;
                     }
                     target[index] = image;
                 },
                 undefined,
                 function(){
-                    console.log('加载'+url+'失败，原因是:我也不知道。。。');
+
                 }
             )
         },
@@ -240,16 +240,16 @@ Background.prototype = {
     function initLoadingManager(){
         var manager = new THREE.LoadingManager();
         manager.onStart = function(url, itemsLoaded, itemsTotal){
-            console.log('开始加载文件：'+url+'，在'+itemsTotal+'中已经加载完成的文件:'+itemsLoaded);
+
         };
         manager.onLoad = function(){
-            console.log('所有文件加载完毕')
+
         };
         manager.onProgress = function(url,itemsLoaded,itemsTotal){
-            console.log('正在加载文件:'+url+'，已完成：'+Math.round(itemsLoaded*100/itemsTotal)+'%')
+
         };
         manager.onError = function(url){
-            console.log('加载过程中出现失败，加载失败的文件是'+url);
+
         };
         return manager;
     }
@@ -376,7 +376,7 @@ window.ontouchstart = function() {
     //单例模式
     bkflag = true;
     playm();
-}
+};
 function playm() {
     if(Isiphone()) {
         if(bkflag && bkflag2) {
@@ -428,10 +428,14 @@ function update(deltaTime){
 }
 window.onload = function(){
     addControler();
-    console.log(cat.imgPack);
     show.scene.add(bg.points);
     show.scene.add(cat.rainbow);
     loop();
+    if(Isiphone()) {
+        button1.innerText="点击屏幕加载音乐"
+        button1.disabled=true;
+    }
+
 };
 function addControler(){
     var controls;
@@ -465,7 +469,10 @@ function playmusic(){
         console.log('play');
     }
 }
-var catType = 2;
+var fristflag = true;
+var catType = 0;
+if(Isiphone()) {catType = 2;
+}
 function changeCat(){
     catType = catType+=1;
     if(catType >= 3){

@@ -20,7 +20,7 @@ function Musicvisualizer(obj){
 
 }
 Musicvisualizer.ac = new (window.AudioContext || window.webkitAudioContext)();
-
+var button1 = document.getElementById("changeCat");
 // 解决 Chrome 66之后高版本中AudioContext被强行suspend的问题
 if(typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined'){
     var resumeAudio = function(){
@@ -33,6 +33,13 @@ if(typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefin
 var u8arr;
 //异步获取  将得到的的ir内容传给回调函数作为其中一个参数
 Musicvisualizer.prototype.load = function(url,fun){
+    button1.disabled = true;
+    if(IsPC()) {
+        button1.innerText = "正在加载音乐...方向键与鼠标可以控制视角"
+    } else {
+        button1.innerText = "正在加载音乐...双指可以控制视角"
+    }
+
     console.log('开始加载音乐');
     this.xhr.abort();
     this.xhr.open('GET',url);
@@ -43,7 +50,7 @@ Musicvisualizer.prototype.load = function(url,fun){
         console.log('finishedLoading+'+url);
         fun(self.xhr.response,url);
         console.log('finished loading music');
-    }
+    };
     var index = checkHas(url,this.tempMusicList);
     console.log(index);
     if(index || index === 0){
@@ -117,6 +124,8 @@ Musicvisualizer.prototype.play = function(path){
             var index =  checkHas(path,self.tempMusicList);
             console.log(index);
             if(index || index === 0){
+                button1.disabled =false;
+                button1.innerText= "changeCat";
                 console.log('启用缓存');
                 var bufferSource = Musicvisualizer.ac.createBufferSource();
                 bufferSource.buffer = self.tempMusicList[index].bufferSource.buffer;
@@ -135,6 +144,13 @@ Musicvisualizer.prototype.play = function(path){
                     bufferSource[bufferSource.start?'start':'noteOn'](0);
                     self.source = bufferSource;
                     console.log('push,'+url);
+                    button1.disabled =false;
+                    if(fristflag && Isiphone()) {
+                        button1.innerText="点击播放";
+                        fristflag = false;
+                    } else {
+                        button1.innerText= "changeCat";
+                    }
                     self.tempMusicList.push({
                         url:url,
                         bufferSource:bufferSource
