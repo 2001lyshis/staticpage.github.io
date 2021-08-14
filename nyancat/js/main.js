@@ -380,18 +380,19 @@ window.ontouchstart = function() {
 function playm() {
     if(Isiphone()) {
         if(bkflag && bkflag2) {
-            mv.play('https://link.jscdn.cn/sharepoint/aHR0cHM6Ly8xZHJpdi1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9zdG9yXzFkcml2X29ubWljcm9zb2Z0X2NvbS9FVUVJTkcyblRFQkJqaDlSaHU5WWdFRUJIWEgtZXYzeE8ydGhESnpvWjByb21n.mp3');
+            mv.play('media/vday.mp3');
             bkflag2 = false;
         }
     } else {
         if(bkflag2) {
-            mv.play('https://link.jscdn.cn/sharepoint/aHR0cHM6Ly8xZHJpdi1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9zdG9yXzFkcml2X29ubWljcm9zb2Z0X2NvbS9FVUVJTkcyblRFQkJqaDlSaHU5WWdFRUJIWEgtZXYzeE8ydGhESnpvWjByb21n.mp3');
+            mv.play('media/vday.mp3');
             bkflag2 = false;
         }
     }
 
 }
 playm();
+
 
 function loop(){
     var now = new Date() - 0;
@@ -475,21 +476,21 @@ function changeCat(){
         case 0:
             catname = 'v';
             show.cat.scale.set(11,11,1);
-            mv.play('https://link.jscdn.cn/sharepoint/aHR0cHM6Ly8xZHJpdi1teS5zaGFyZXBvaW50LmNvbS86dTovZy9wZXJzb25hbC9zdG9yXzFkcml2X29ubWljcm9zb2Z0X2NvbS9FVUVJTkcyblRFQkJqaDlSaHU5WWdFRUJIWEgtZXYzeE8ydGhESnpvWjByb21n.mp3');
+            mv.play('media/vday.mp3');
             cat.speed = 1/12;
             bg.speed = 1;
             break;
         case 1:
             catname = 'original';
             show.cat.scale.set(11,11,1);
-            mv.play('https://www.ytmp3.cn/down/75473.mp3');
+            mv.play('media/original.mp3');
             cat.speed = 1/14;
             bg.speed = 14/12;
             break;
         case 2:
             catname = 'technyan';
             show.cat.scale.set(12,12,1);
-            mv.play('https://www.ytmp3.cn/down/75474.mp3');
+            mv.play('media/technyancolor.mp3');
             cat.speed = 1/18;
             bg.speed = 18/12;
             break;
