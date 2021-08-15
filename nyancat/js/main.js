@@ -492,14 +492,14 @@ function changeCat(){
             show.cat.scale.set(11,11,1);
             mv.play('media/original.mp3');
             cat.speed = 1/14;
-            bg.speed = 14/12;
+            bg.speed = 28/12;
             break;
         case 2:
             catname = 'technyan';
             show.cat.scale.set(12,12,1);
             mv.play('media/technyancolor.mp3');
             cat.speed = 1/18;
-            bg.speed = 18/12;
+            bg.speed = 48/12;
             break;
     }
     show.LoadAllImgs(cats[catname],cat.imgPack);
