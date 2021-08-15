@@ -204,7 +204,6 @@ Background.prototype = {
                 function(image){
                     //加载完成之后将图片添加进去
                     if(typeof(index) === 'undefined'){
-
                         return false;
                     }
                     target[index] = image;
@@ -341,8 +340,12 @@ Background.prototype = {
 show.init();
 var cats = {
     v:getCatsImgs('nyan'),
-    original:getCatsImgs('original'),
-    technyan:getCatsImgs('technyancolor')
+    technyan:getCatsImgs('technyancolor'),
+    gb:getCatsImgs('gb'),
+    nyaninja:getCatsImgs('nyaninja'),
+    fiesta:getCatsImgs('fiesta'),
+    pumpkin:getCatsImgs('pumpkin'),
+    mexinyan:getCatsImgs('mexinyan')
 };
 
 function getCatsImgs(name){
@@ -471,11 +474,11 @@ function playmusic(){
 }
 var fristflag = true;
 var catType = 0;
-if(Isiphone()) {catType = 2;
+if(Isiphone()) {catType = 6;
 }
 function changeCat(){
     catType = catType+=1;
-    if(catType >= 3){
+    if(catType >= 7){
         catType = 0;
     }
     var catname = '';
@@ -488,19 +491,50 @@ function changeCat(){
             bg.speed = 1;
             break;
         case 1:
-            catname = 'original';
-            show.cat.scale.set(11,11,1);
-            mv.play('media/original.mp3');
-            cat.speed = 1/14;
-            bg.speed = 28/12;
+            catname = 'mexinyan';
+            show.cat.scale.set(11,13,1);
+            mv.play('media/mexinyan.mp3');
+            cat.speed = 1/18;
+            bg.speed = 18/12;
             break;
         case 2:
-            catname = 'technyan';
-            show.cat.scale.set(12,12,1);
-            mv.play('media/technyancolor.mp3');
+            catname = 'gb';
+            show.cat.scale.set(11,12,1);
+            mv.play('media/bg.mp3');
+            cat.speed = 1/18;
+            bg.speed = 38/12;
+            break;
+        case 3:
+            catname = 'pumpkin';
+            show.cat.scale.set(12,13,1);
+            mv.play('media/pumpkin.mp3');
             cat.speed = 1/18;
             bg.speed = 48/12;
             break;
+        case 4:
+            catname = 'fiesta';
+            show.cat.scale.set(11,13,1);
+            mv.play('media/fiesta.mp3');
+            cat.speed = 1/18;
+            bg.speed = 58/12;
+            break;
+        case 5:
+            catname = 'nyaninja';
+            show.cat.scale.set(12,11,1);
+            mv.play('media/nyaninja.mp3');
+            cat.speed = 1/18;
+            bg.speed = 58/12;
+            break;
+
+        case 6:
+            catname = 'technyan';
+            show.cat.scale.set(13,13,1);
+            mv.play('media/technyancolor.mp3');
+            cat.speed = 1/18;
+            bg.speed = 78/12;
+            break;
+
+
     }
     show.LoadAllImgs(cats[catname],cat.imgPack);
 }
