@@ -10,16 +10,10 @@ const title = document.getElementById("title");
 const musicCover = document.getElementById("music-cover");
 
 // 音乐信息
-const songs = ["Nyan Cat", "bouquet", "Torches",
-                 "Nevada", "Leshphon", "Sweet Rumors"];
+const songs = ["Leshphon"];
 const ip = [
-    "http://www.ytmp3.cn/down/75465.mp3",
-    "https://www.ytmp3.cn/down/75461.mp3",
-    "http://www.ytmp3.cn/down/75464.mp3",
-    "https://www.ytmp3.cn/down/75460.mp3",
-    "http://www.ytmp3.cn/down/75466.mp3",
-    "http://www.ytmp3.cn/down/75467.mp3"
-]
+    "http://www.ytmp3.cn/down/75466.mp3"
+];
 // 默认从第一首开始
 let songIndex = 0;
 // 将歌曲细节加载到DOM
@@ -125,4 +119,4 @@ progressContainer.onclick = setProgress;
 // 3.2 进度条更新
 audio.ontimeupdate = updateProgress;
 // 3.3 歌曲结束后自动下一首
-audio.onended = nextSong
+audio.onended = nextSong;
