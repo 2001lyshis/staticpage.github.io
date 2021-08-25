@@ -37,6 +37,7 @@
 
         this.img = document.createElement('img');
         this.img.src = 'index/img/nyancat.gif';
+        this.img.className='NyanCats';
         this.img.style.position = 'fixed';
         this.wait = true; // ture is not display
         document.body.appendChild(this.img);
