@@ -1,5 +1,5 @@
 
-$(".NyanCats").on( 'click' , function(){ location.href = 'http://123.57.65.138:9651/'; } )
+$(".NyanCats").on( 'click' , function(){ location.href = 'http://123.57.65.138/'; } )
 
 window.onpageshow=function (event) {
 
