@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>nyannyannyan</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta content="initial-scale=0.645, minimum-scale=0.645, maximum-scale=0.645, user-scalable=no, width=device-width" name="viewport">
+
     <style>
         html {
             font-size: 100px;
@@ -17,7 +19,6 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         @media only screen and (max-device-width: 319px) {
@@ -58,7 +59,7 @@
         var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 611) / 2 : 0,
             _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 715) / 2 : 0;
         //在页面未加载完毕之前显示的loading Html自定义内容
-        var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#f3f8ff;opacity:1;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto; height: 527px; line-height: 527px; padding-left: 500px; padding-right: 50px; background: #fff url(../index/img/Reimu.gif) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; font-family:\'Microsoft YaHei\';">页面加载中，请等待...</div></div>';
+            var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#f3f8ff;opacity:1;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto; height: 527px; line-height: 527px; padding-left: 500px; padding-right: 50px; background: #fff url(../index/img/Reimu.gif) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; font-family:\'Microsoft YaHei\';">页面加载中，请等待...</div></div>';
         //呈现loading效果
         document.write(_LoadingHtml);
 
