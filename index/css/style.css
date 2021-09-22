@@ -11,7 +11,7 @@
             }
 
             h1 {
-                height: 20px;
+                height: 30px;
             }
             .music {
                 height: 65vh;
@@ -27,7 +27,7 @@
             }
             .banner{
                 position: relative;
-                height: 175px;
+                height: 165px;
                 overflow: hidden;
             }
             .layer{
