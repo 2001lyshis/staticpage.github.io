@@ -1,3 +1,17 @@
+document.getElementById("banner1").innerHTML=" <div class=\"layer\" ><img src=\"index/img/left.gif\"\n" +
+    "                             height=\"165\"\n" +
+    "                             style=\"transform: scale(1) translate(0px) ; filter: blur(0px);\n" +
+    "                                    opacity: 0;\"></div>\n" +
+    "    <div class=\"layer\"><img src=\"index/img/middle.gif\"\n" +
+    "                            height=\"165\"\n" +
+    "                            style=\"transform: scale(1) translate(0px) ; filter: blur(0px);\n" +
+    "                                    opacity: 1;\"></div>\n" +
+    "    <div class=\"layer\"><img src=\"index/img/right.gif\"\n" +
+    "                            height=\"165\"\n" +
+    "                            style=\"transform: scale(1) translate(0px) ; filter: blur(0px);\n" +
+    "                                    opacity: 0;\"></div>"
+
+
 let init=()=>{
                 layer[0].children[0].style='transition:.2s linear;object-fit: cover;transform:  translate(0px) ;opacity: 0;';
                 layer[1].children[0].style='transition:.2s linear;object-fit: cover;transform:  translate(0px) ;opacity: 1;';
