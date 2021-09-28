@@ -14,12 +14,12 @@ const songs = ["Style","Nyan Cat", "bouquet", "Torches",
     "Nevada", "Leshphon", "Sweet Rumors"];
 const ip = [
     "index/music/style.mp3",
-    "http://www.ytmp3.cn/down/75465.mp3",
-    "https://www.ytmp3.cn/down/75461.mp3",
-    "http://www.ytmp3.cn/down/75464.mp3",
-    "https://www.ytmp3.cn/down/75460.mp3",
-    "http://www.ytmp3.cn/down/75466.mp3",
-    "http://www.ytmp3.cn/down/75467.mp3"
+    "index/music/nyancat.mp3",
+    "index/music/bouquet.mp3",
+    "index/music/Torches.mp3",
+    "index/music/Nevada.mp3",
+    "index/music/Leshphon.mp3",
+    "index/music/Sweet Rumors.mp3",
 ];
 // 默认从第一首开始
 let songIndex = 0;
