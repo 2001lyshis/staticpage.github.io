@@ -13,7 +13,7 @@ const musicCover = document.getElementById("music-cover");
 const songs = ["Style","Nyan Cat", "bouquet", "Torches",
     "Nevada", "Leshphon", "Sweet Rumors"];
 const ip = [
-    "https://www.ytmp3.cn/down/75592.mp3",
+    "index/music/style.mp3",
     "http://www.ytmp3.cn/down/75465.mp3",
     "https://www.ytmp3.cn/down/75461.mp3",
     "http://www.ytmp3.cn/down/75464.mp3",
