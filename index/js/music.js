@@ -11,7 +11,7 @@ const musicCover = document.getElementById("music-cover");
 
 // 音乐信息
 const songs = ["Style","Nyan Cat", "bouquet", "Torches",
-    "Nevada", "Leshphon", "Sweet Rumors"];
+    "Nevada", "Leshphon"];
 const ip = [
     "index/music/style.mp3",
     "index/music/nyancat.mp3",
@@ -19,7 +19,6 @@ const ip = [
     "index/music/Torches.mp3",
     "index/music/Nevada.mp3",
     "index/music/Leshphon.mp3",
-    "index/music/Sweet Rumors.mp3",
 ];
 // 默认从第一首开始
 let songIndex = 0;
