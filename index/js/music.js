@@ -10,13 +10,13 @@ const title = document.getElementById("title");
 const musicCover = document.getElementById("music-cover");
 
 // 音乐信息
-const songs = ["Leshphon"];
+const songs = ["Theme of sss"];
 /*
 const songs = ["Style","Nyan Cat", "bouquet", "Torches",
     "Nevada", "Leshphon"];
  */
 const ip = [
-    "index/music/Leshphon.mp3",
+    "index/music/sss.mp3",
 ];
 /*
 const ip = [
