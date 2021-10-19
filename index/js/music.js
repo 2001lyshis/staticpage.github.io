@@ -10,7 +10,7 @@ const title = document.getElementById("title");
 const musicCover = document.getElementById("music-cover");
 
 // 音乐信息
-const songs = ["Theme of sss"];
+const songs = ["Theme_of_SSS"];
 /*
 const songs = ["Style","Nyan Cat", "bouquet", "Torches",
     "Nevada", "Leshphon"];
